@@ -1,0 +1,13 @@
+### composer.lockとcomposer.json
+Composerがライブラリやパッケージを管理しているファイルがcomposer.jsonやcomposer.lock
+
+まず最初に使われるのはcomposer.jsonです。
+Composerをインストールし、composer.jsonをアプリのディレクトリに配置してcomposer installをしたら、composer.jsonに書かれた情報を基にパッケージやライブラリがvendorディレクトリ配下にまとめてインストールされます。
+
+このとき同時に生成されるのがcomposer.lockファイルです。composer install時に参照したパッケージやパッケージのバージョン情報がcomposer.lockに書き込まれます。
+
+そして二回目以降はcomposer installをしたときには、composer.jsonではなくcomposer.lockを参照します。
+
+composer.jsonにパッケージを追加する等の変更を加えて、composer updateをすると、composer.jsonの情報を基にライブラリが最新の状態に変更されます。
+
+そしてこのとき、最新にしたパッケージやライブラリの情報がcomposer.lockに書き込まれます（composer.lockが更新される）。
